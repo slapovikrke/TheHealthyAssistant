@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="TheHealthyAssistant.SecondPage">
+    <ContentPage.Content>
+        <FlexLayout Padding="0,20,0,0"
+                    Direction="Column"
+                    AlignItems="Center"
+                    JustifyContent="SpaceEvenly"
+                    BackgroundColor="White">
+            <Label Text="WYBIERZ:" 
+                   HorizontalOptions="Center"
+                   TextColor="Black"
+                   BackgroundColor="White"
+                   FontSize="Large"
+                   FontAttributes="Bold,Italic"/>
+            <Button Text="WAŻNE DATY"
+                    HorizontalOptions="Center"
+                    TextColor="Black"
+                    BackgroundColor="White"
+                    FontSize="Large"
+                    FontAttributes="Bold,Italic"
+                    Clicked="OnImportantDatesButtonClicked"/>
+            <Button Text="LEKI"
+                    HorizontalOptions="Center"
+                    TextColor="Black"
+                    BackgroundColor="White"
+                    FontSize="Large"
+                    FontAttributes="Bold,Italic"
+                    Clicked="OnMedicinesButtonClicked"/>
+            <Button Text="WIZYTY"
+                    HorizontalOptions="Center"
+                    TextColor="Black"
+                    BackgroundColor="White"
+                    FontSize="Large"
+                    FontAttributes="Bold,Italic"
+                    Clicked="OnMeetingsButtonClicked"/>
+            <Button Text="INF. OGÓLNE"
+                    HorizontalOptions="Center"
+                    TextColor="Black"
+                    BackgroundColor="White"
+                    FontSize="Large"
+                    FontAttributes="Bold,Italic"
+                    Clicked="OnGeneralInformationButtonClicked"/>
+            <Button Text="ZEGAREK"
+                    HorizontalOptions="Center"
+                    TextColor="Black"
+                    BackgroundColor="White"
+                    FontSize="Large"
+                    FontAttributes="Bold,Italic"
+                    Clicked="OnWatchButtonClicked"/>
+        </FlexLayout>
+    </ContentPage.Content>
+</ContentPage>

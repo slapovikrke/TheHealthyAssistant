@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="TheHealthyAssistant.ActionSheetPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <FlexLayout Padding="10,0,10,0"
+                    Direction="Column"
+                    AlignItems="Center"
+                    JustifyContent="SpaceEvenly"
+                    BackgroundColor="White">
+                <Label 
+                    Text="USTAWIENIA" 
+                    HorizontalOptions="Center"
+                    TextColor="Black"
+                    BackgroundColor="White"
+                    FontSize="Large"
+                    FontAttributes="Bold,Italic"/>
+                <Entry Placeholder="IMIĘ" x:Name="FirstName"/>
+                <Entry Placeholder="NAZWISKO" x:Name="Name"/>
+                <Entry Placeholder="EMAIL (KOGOŚ BLISKIEGO)" x:Name="Email"/>
+                <Entry Placeholder="TELEFON (KOGOŚ BLISKIEGO)" x:Name="Number"/>
+                <Label 
+                    Text="CZY NA COŚ CHORUJESZ?" 
+                    HorizontalOptions="Center"
+                    TextColor="Black"
+                    BackgroundColor="White"
+                    FontSize="Large"/>
+                <Button 
+                    Text="OK"
+                    TextColor="Black"
+                    BackgroundColor="White"
+                    FontSize="Large"
+                    FontAttributes="Bold,Italic"
+                    Clicked="OnOKButtonClicked"
+                    Margin="100,0,0,0"/>
+            </FlexLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
