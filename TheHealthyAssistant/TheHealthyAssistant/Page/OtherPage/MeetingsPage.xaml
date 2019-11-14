@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:controls="clr-namespace:Xamarin.Plugin.Calendar.Controls;assembly=Xamarin.Plugin.Calendar"
+             xmlns:local="clr-namespace:TheHealthyAssistant.Page.OtherPage"
+             mc:Ignorable="d"
+             x:Class="TheHealthyAssistant.MeetingsPage">
+    <ContentPage.BindingContext>
+        <local:MeetingsPageViewModel />
+
+    </ContentPage.BindingContext>
+        <ContentPage.ToolbarItems>
+            <ToolbarItem Text="+"
+                        Clicked="OnAddMeetingsPageButtonClicked"/>
+            <ToolbarItem Text="i"
+                        Clicked="OnAlertMeetingsPageButtonClicked"/>
+        </ContentPage.ToolbarItems>
+        <StackLayout>
+        <controls:Calendar
+        Padding="10,0"
+        VerticalOptions="FillAndExpand"
+        HorizontalOptions="FillAndExpand"
+        Events="{Binding Events}"
+        Culture="{Binding Culture}"
+        Month="{Binding Month}"
+        Year="{Binding Year}"
+        SelectedDate="{Binding SelectedDate}">
+            <controls:Calendar.EventTemplate>
+                <DataTemplate>
+                    <StackLayout
+                    VerticalOptions="FillAndExpand"
+                    HorizontalOptions="FillAndExpand"
+                    Padding="15,0,0,0">
+                        <Label
+                        Text="{Binding Name}"
+                        FontAttributes="Bold"
+                        FontSize="Medium" />
+                        <Label
+                        Text="{Binding Description}"
+                        FontSize="Small"
+                        LineBreakMode="WordWrap" />
+
+                    </StackLayout>
+                </DataTemplate>
+            </controls:Calendar.EventTemplate>
+        </controls:Calendar>
+    </StackLayout>
+</ContentPage>

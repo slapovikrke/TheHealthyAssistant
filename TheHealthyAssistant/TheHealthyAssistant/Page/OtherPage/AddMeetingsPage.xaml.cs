@@ -7,14 +7,19 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace TheHealthyAssistant
+namespace TheHealthyAssistant.Page.OtherPage
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class GeneralInformationPage : ContentPage
+    public partial class AddMeetingsPage : ContentPage
     {
-        public GeneralInformationPage()
+        public AddMeetingsPage()
         {
             InitializeComponent();
         }
+        private async void OnAddDateButtonClicked(object sender, EventArgs e)
+        {
+            
+        }
     }
+
 }

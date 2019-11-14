@@ -1,7 +1,7 @@
 ﻿using System;
 
 using Android.App;
-using System.Collections.Generic;
+using Android.Content;
 using System.Text;
 using System.Linq;
 using Android.Util;
@@ -11,17 +11,24 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 using Xamarin.Forms;
+using Android.Provider;
+using Android.Database;
+using Java.Util;
 
 namespace TheHealthyAssistant.Droid
 {
     [Activity(Label = "TheHealthyAssistant", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
-        protected override void OnCreate(Bundle bundle)
+        protected override void OnCreate(Bundle savedInstanceState)
         {
-            base.OnCreate(bundle);
-            global::Xamarin.Forms.Forms.Init(this, bundle);
+            TabLayoutResource = Resource.Layout.Tabbar;
+            ToolbarResource = Resource.Layout.Toolbar;
+
+            base.OnCreate(savedInstanceState);
+            global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
+
         }
-    };
+    }
 }
