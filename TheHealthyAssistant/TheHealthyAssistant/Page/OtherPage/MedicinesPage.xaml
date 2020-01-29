@@ -10,6 +10,15 @@
             <Label Text="ZAŻYWANE LEKI:"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
+            <Label
+                        Text="{Binding Name}"
+                        FontAttributes="Bold"
+                        FontSize="Medium" />
+             <Label
+                        Text="{Binding Description}"
+                        FontSize="Small"
+                        LineBreakMode="WordWrap" />
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

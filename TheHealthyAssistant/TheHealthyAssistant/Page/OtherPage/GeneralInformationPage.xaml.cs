@@ -19,98 +19,40 @@ namespace TheHealthyAssistant
             InitializeComponent();
         }
 
-        protected override void OnAppearing()
+        protected override async void OnAppearing()
         {
             base.OnAppearing();
-
-            var notes = new List<Note>();
-
-            var files = Directory.EnumerateFiles(App.FolderPath, "*.notes.txt");
-            foreach (var filename in files)
-            {
-                notes.Add(new Note
-                {
-                    Filename = filename,
-                    Text = File.ReadAllText(filename),
-                    Date = File.GetCreationTime(filename)
-                });
-            }
-
-            listView.ItemsSource = notes
-                .OrderBy(d => d.Date)
-                .ToList();
+            listView.ItemsSource = await App.Database.GetUsersAsync().ConfigureAwait(true);
         }
 
-        async void OnNoteAddedClicked(object sender, EventArgs e)
+        async void OnUserDeleteClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new ActionSheetPage()).ConfigureAwait(true);
+            //    if (e.SelectedItem != null)
+            //    {
+            //        await Navigation.PushAsync(new ActionSheetPage()).ConfigureAwait(true);
+            //        {
+            //            BindingContext = e.SelectedItem as User;
+            //        }
+            //    }
+        }
+        async void OnUserEditClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new ActionSheetPage()).ConfigureAwait(true);
             {
-                BindingContext = new Note();
+                BindingContext = new User();
             }
         }
-
+    
         async void OnListViewItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             if (e.SelectedItem != null)
             {
                 await Navigation.PushAsync(new ActionSheetPage()).ConfigureAwait(true);
                 {
-                    BindingContext = e.SelectedItem as Note;
+                    BindingContext = e.SelectedItem as User;
                 }
             }
         }
     }
 }
-        //protected override async void OnAppearing()
-        //{
-        //    base.OnAppearing();
-
-        //    listView.ItemsSource = await App.Database.GetUsersAsync().ConfigureAwait(true);
-        //}
-        //async void OnUserAddedClicked(object sender, EventArgs e)
-        //{
-        //    await Navigation.PushAsync(new ActionSheetPage()).ConfigureAwait(true);
-        //    {
-        //        BindingContext = new User();
-        //    }
-        //}
-
-        //async void OnListViewItemSelected(object sender, SelectedItemChangedEventArgs e)
-        //{
-        //    if (e.SelectedItem != null)
-        //    {
-        //        await Navigation.PushAsync(new ActionSheetPage()).ConfigureAwait(true);
-        //        {
-        //            BindingContext = e.SelectedItem as User;
-        //        }
-        //    }
-        //}
-
-        //async void OnOKButtonClicked(object sender, EventArgs e)
-        //{
-
-        //}
-
-        //void OnDiabetesBoxCheckedChanged(object sender, CheckedChangedEventArgs e)
-        //{
-        //    if (e.Value)
-        //    {
-
-        //    }
-        //    else
-        //    {
-
-        //    }
-        //}
-
-        //void OnHypertensionBoxCheckedChanged(object sender, CheckedChangedEventArgs e)
-        //{
-        //    if (e.Value)
-        //    {
-
-        //    }
-        //    else
-        //    {
-
-        //    }
-        //}

@@ -6,29 +6,102 @@
              mc:Ignorable="d"
              x:Class="TheHealthyAssistant.ActionSheetPage">
     <ContentPage.Content>
-        <ScrollView>
-            <FlexLayout Padding="10,0,10,0"
-                    Direction="Column"
-                    AlignItems="Center"
-                    JustifyContent="SpaceEvenly"
-                    BackgroundColor="White">
-                <StackLayout Margin="20">
-                    <Editor Placeholder="Enter your note"
-                            Text="{Binding Text}"
-                            HeightRequest="100" />
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <Button Text="Save" 
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Label Text="WPISZ SWOJE DANE:" 
+                           Grid.Column="1"
+                           Grid.Row="1"
+                           Grid.ColumnSpan="4"
+                           HorizontalOptions="Center"
+                           TextColor="Black"
+                           BackgroundColor="White"/>
+            <Entry Placeholder="IMIĘ" 
+                            TextColor="Black"
+                           x:Name="FirstName"
+                           Text="{Binding Text}"
+                           Grid.Column="1"
+                           Grid.ColumnSpan="4"
+                           Grid.Row="2"/>
+            <Entry Placeholder="NAZWISKO" 
+                           TextColor="Black"
+                           x:Name="Name"
+                           Text="{Binding Text}"
+                           Grid.ColumnSpan="4"
+                           Grid.Column="1"
+                           Grid.Row="3"/>
+            <Entry Placeholder="EMAIL (KOGOŚ BLISKIEGO)" 
+                            TextColor="Black"
+                           x:Name="Email"
+                           Text="{Binding Text}"
+                           Grid.Column="1"
+                           Grid.ColumnSpan="4"
+                           Grid.Row="4"/>
+            <Entry Placeholder="TELEFON (KOGOŚ BLISKIEGO)" 
+                            TextColor="Black"
+                           x:Name="Number"
+                           Text="{Binding Text}"
+                           Grid.ColumnSpan="4"                  
+                           Grid.Column="1"
+                           Grid.Row="5"/>
+            <Label Text="CZY NA COŚ CHORUJESZ?" 
+                           HorizontalOptions="Center"
+                           TextColor="Black"
+                           BackgroundColor="White"
+                           Grid.Column="1"
+                           Grid.Row="7"
+                           Grid.ColumnSpan="4"/>
+            <Label   Text="CUKRZYCA"         
+                           Grid.Column="1"
+                           Grid.ColumnSpan="2"
+                           Grid.Row="8 "
+                           TextColor="Black" />
+                <CheckBox   x:Name="Diabetes"
+                                Grid.Column="3"
+                                Grid.Row="8"
+                                CheckedChanged="OnDiabetesBoxCheckedChanged"/>
+                <Label Grid.Column="1"
+                           Grid.Row="9"
+                           Text="NADCIŚNIENIE"
+                         Grid.ColumnSpan="2"
+                            TextColor="Black"/>
+                <CheckBox   x:Name="Hypertension"
+                                Grid.Column="3"
+                                Grid.Row="9"
+                                CheckedChanged="OnHypertensionBoxCheckedChanged" />
+                <Button Text="ZAPISZ"
+                                Grid.Column="0"
+                                Grid.Row="11"
+                                TextColor="Black"
+                         Grid.ColumnSpan="2"
+                                BackgroundColor="White"
+                                BorderWidth="3"
+                                BorderColor="Black"
                                 Clicked="OnSaveButtonClicked" />
-                        <Button Grid.Column="1"
-                                Text="Delete" 
+            <Button Grid.Column="2"
+                    Grid.Row="11"
+                     Grid.ColumnSpan="2"
+                                Text="ZMIEŃ" 
+                                TextColor="Black"
+                                BackgroundColor="White"
+                                BorderWidth="3"
+                                BorderColor="Black"
+                                Clicked="OnEditButtonClicked"/>
+            <Button Grid.Column="4"
+                    Grid.Row="11"
+                     Grid.ColumnSpan="2"
+                                Text="USUŃ" 
+                                TextColor="Black"
+                                BackgroundColor="White"
+                                BorderWidth="3"
+                                BorderColor="Black"
                                 Clicked="OnDeleteButtonClicked"/>
-                    </Grid>
-                </StackLayout>
-            </FlexLayout>
-        </ScrollView>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

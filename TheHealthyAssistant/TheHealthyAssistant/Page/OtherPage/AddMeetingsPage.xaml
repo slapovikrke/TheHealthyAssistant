@@ -13,12 +13,11 @@
                             JustifyContent="SpaceEvenly"
                             BackgroundColor="White">
                     <StackLayout Margin="20">
-                        <Editor Placeholder="Enter your note"
+                        <Editor Placeholder="Wpisz swoją notatkę"
                                 Text="{Binding Text}"
                                 HeightRequest="100" />
-                    <Button Text="Add" 
+                    <Button Text="DODAJ" 
                             Clicked="OnAddDateButtonClicked" />
-                        
                     <DatePicker MinimumDate="05/11/2019"
                                 MaximumDate="12/31/2099"
                                 Date="{Binding SelectedDate}" />

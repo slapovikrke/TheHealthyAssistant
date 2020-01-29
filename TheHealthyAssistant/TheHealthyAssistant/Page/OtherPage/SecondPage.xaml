@@ -1,10 +1,15 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿9+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="TheHealthyAssistant.SecondPage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="INFORMACJE"
+                        Clicked="OnInfSecondPageButtonClicked"/>
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <FlexLayout Padding="0,20,0,0"
                     Direction="Column"
@@ -18,34 +23,44 @@
                    FontSize="Large"
                    FontAttributes="Bold,Italic"/>
             <Button Text="WAŻNE DATY"
+                    BorderWidth="3"
+                    BorderColor="Black"
                     HorizontalOptions="Center"
                     TextColor="Black"
                     BackgroundColor="White"
                     FontSize="Large"
                     FontAttributes="Bold,Italic"
                     Clicked="OnImportantDatesButtonClicked"/>
-            <Button Text="LEKI"
+            <Button Text="   LEKI   "
+                    BorderWidth="3"
+                    BorderColor="Black"
                     HorizontalOptions="Center"
                     TextColor="Black"
                     BackgroundColor="White"
                     FontSize="Large"
                     FontAttributes="Bold,Italic"
                     Clicked="OnMedicinesButtonClicked"/>
-            <Button Text="WIZYTY"
+            <Button Text="  WIZYTY  "
+                    BorderWidth="3"
+                    BorderColor="Black"
                     HorizontalOptions="Center"
                     TextColor="Black"
                     BackgroundColor="White"
                     FontSize="Large"
                     FontAttributes="Bold,Italic"
                     Clicked="OnMeetingsButtonClicked"/>
-            <Button Text="INF. OGÓLNE"
+            <Button Text="INF.OGÓLNE"
+                       BorderWidth="3"
+                    BorderColor="Black"
                     HorizontalOptions="Center"
                     TextColor="Black"
                     BackgroundColor="White"
                     FontSize="Large"
                     FontAttributes="Bold,Italic"
                     Clicked="OnGeneralInformationButtonClicked"/>
-            <Button Text="ZEGAREK"
+            <Button Text="  ZEGAREK "
+                       BorderWidth="3"
+                    BorderColor="RED"
                     HorizontalOptions="Center"
                     TextColor="Black"
                     BackgroundColor="White"

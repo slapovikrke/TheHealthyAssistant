@@ -9,7 +9,6 @@
              x:Class="TheHealthyAssistant.MeetingsPage">
     <ContentPage.BindingContext>
         <local:MeetingsPageViewModel />
-
     </ContentPage.BindingContext>
         <ContentPage.ToolbarItems>
             <ToolbarItem Text="+"

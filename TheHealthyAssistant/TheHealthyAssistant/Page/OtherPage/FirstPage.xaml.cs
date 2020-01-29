@@ -20,5 +20,5 @@ namespace TheHealthyAssistant
         {
             await Navigation.PushAsync( new SecondPage ()).ConfigureAwait(true);
         }
-    }
+    } 
 }

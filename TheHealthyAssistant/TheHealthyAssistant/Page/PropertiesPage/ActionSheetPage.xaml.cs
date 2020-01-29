@@ -16,58 +16,55 @@ namespace TheHealthyAssistant
     { 
         public ActionSheetPage()
         {
-            this.BindingContext = new Note();
+            this.BindingContext = new User();
             InitializeComponent();
         }
         async void OnSaveButtonClicked(object sender, EventArgs e)
         {
-            //    var user = User;
-            //    User user = new User()
-            //    {
-            //    Date = DateTime.UtcNow;
-            //    Text = text;
-            //    ID = id;
-            //};
-            //user.Date = DateTime.UtcNow;
-            //var user = (User)BindingContext;
-            //user.Date = DateTime.UtcNow;
-            //await App.Database.SaveUserAsync(user).ConfigureAwait(true);
-            //await Navigation.PopAsync().ConfigureAwait(true);
-            var note = (Note)BindingContext;
-
-            if (note == null || string.IsNullOrEmpty(note.Filename))
-            //{
-                //if (string.IsNullOrWhiteSpace(note.Filename))
-                {
-                    // Save
-                    var filename = Path.Combine(App.FolderPath, $"{Path.GetRandomFileName()}.notes.txt");
-                    File.WriteAllText(filename, note.Text);
-                }
-                else
-                {
-                    // Update 
-                    File.WriteAllText(note.Filename, note.Text);
-                }
-            //}
-
+            var user = (User)BindingContext;
+            DateTime dateTime = user.Date = DateTime.UtcNow;
+            await App.Database.SaveUserAsync(user).ConfigureAwait(true);
             await Navigation.PopAsync().ConfigureAwait(true);
+            await Navigation.PushAsync(new GeneralInformationPage()).ConfigureAwait(true);
         }
 
+        async void OnEditButtonClicked(object sender, EventArgs e)
+        {
+            var user = (User)BindingContext;
+            await App.Database.SaveUserAsync(user).ConfigureAwait(true);
+            await Navigation.PopAsync().ConfigureAwait(true);
+            await Navigation.PushAsync(new GeneralInformationPage()).ConfigureAwait(true);
+        }
         async void OnDeleteButtonClicked(object sender, EventArgs e)
         {
-            //var note = (User)BindingContext;
-            //await App.Database.DeleteUserAsync(note).ConfigureAwait(true);
-            //await Navigation.PopAsync().ConfigureAwait(true);
-            var note = (Note)BindingContext;
+            var user = (User)BindingContext;
+           // .Remove(user);
+            await App.Database.DeleteUserAsync(user).ConfigureAwait(true);
+ 
+        }
 
-            if (File.Exists(note.Filename))
+        void OnDiabetesBoxCheckedChanged(object sender, CheckedChangedEventArgs e)
+        {
+            if (e.Value)
             {
-                File.Delete(note.Filename);
-            }
 
-            await Navigation.PopAsync().ConfigureAwait(true);
+            }
+            else
+            {
+
+            }
+        }
+
+        void OnHypertensionBoxCheckedChanged(object sender, CheckedChangedEventArgs e)
+        {
+            if (e.Value)
+            {
+
+            }
+            else
+            {
+
+            }
         }
     }
-
 }
-    

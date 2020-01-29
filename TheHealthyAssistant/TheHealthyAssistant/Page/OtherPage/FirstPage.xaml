@@ -22,12 +22,14 @@
                          BackgroundColor="White" 
                          Clicked="OnSecondPageClicked"/>
             <Button Text="INFORMACJE"
+                    BorderColor="Black"
+                       BorderWidth="3"
                     TextColor="Black"
                     BackgroundColor="White"
                     FontSize="Large"
                     FontAttributes="Bold,Italic"
                     Clicked="OnAlertSimpleClicked"
-                    Margin="100,0,0,0"/>
+                    Margin="90,0,0,0"/>
         </FlexLayout>
     </ContentPage.Content>
 </ContentPage>

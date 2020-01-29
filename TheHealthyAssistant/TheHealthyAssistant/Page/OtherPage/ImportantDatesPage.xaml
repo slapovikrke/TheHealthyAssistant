@@ -5,11 +5,21 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="TheHealthyAssistant.ImportantDatesPage">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+    <ContentPage.ToolbarItems>
+            <ToolbarItem Text="DODAJ"
+                        Clicked="OnAddImportantDatesPageButtonClicked"/>
+            <ToolbarItem Text="INFORMACJE"
+                        Clicked="OnAlertImportantDatesPageButtonClicked"/>
+        </ContentPage.ToolbarItems>
+    <ListView x:Name="listView2"
+              Margin="20"
+              ItemSelected="OnListView2ItemSelected">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <TextCell 
+                          Text="{Binding Name}"
+                          Detail="{Binding Date}" />
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
 </ContentPage>

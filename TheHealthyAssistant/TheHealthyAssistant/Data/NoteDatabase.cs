@@ -1,30 +1,31 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
+using System.Text;
 using System.Threading.Tasks;
-using SQLite;
 using TheHealthyAssistant.Models;
 
 namespace TheHealthyAssistant.Data
 {
-    public class UserDatabase
+    public class NoteDatabase
     {
 
         private SQLiteAsyncConnection _database;
-        public UserDatabase(string dbPath)
+        public NoteDatabase(string dbPath)
         {
             _database = new SQLiteAsyncConnection(dbPath);
-            _database.CreateTableAsync<User>().Wait();
-          
+            _database.CreateTableAsync<Note>().Wait();
+
         }
 
-        public Task<List<User>> GetUsersAsync()
+        public Task<List<Note>> GetUsersAsync()
         {
-            return _database.Table<User>().ToListAsync();
+            return _database.Table<Note>().ToListAsync();
         }
 
-        public Task<User> GetUserAsync(int id)
+        public Task<Note> GetUserAsync(int id)
         {
-            return _database.Table<User>()
+            return _database.Table<Note>()
                             .Where(i => i.ID == id)
                             .FirstOrDefaultAsync();
         }
@@ -35,24 +36,24 @@ namespace TheHealthyAssistant.Data
         //    //throw new NotImplementedException();
         //}
 
-        public Task<int> SaveUserAsync(User user)
+        public Task<int> SaveUserAsync(Note note)
         {
-            if (user.ID != 0)
+            if (note.ID != 0)
             {
-                return _database.UpdateAsync(user);
+                return _database.UpdateAsync(note);
             }
             else
             {
-                return _database.InsertAsync(user);
+                return _database.InsertAsync(note);
                 //throw new NotImplementedException();
             }
         }
 
-        public Task<int> DeleteUserAsync(User user)
+        public Task<int> DeleteUserAsync(Note note)
         {
-       
 
-            return _database.DeleteAsync(user);
+
+            return _database.DeleteAsync(note);
         }
     }
 }

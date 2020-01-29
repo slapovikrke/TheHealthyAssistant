@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+               x:Class="TheHealthyAssistant.Page.OtherPage.AddImportantDatesPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <FlexLayout Padding="10,0,10,0"
+                            Direction="Column"
+                            AlignItems="Center"
+                            JustifyContent="SpaceEvenly"
+                            BackgroundColor="White">
+                <StackLayout Margin="20">
+                    <Editor Placeholder="Wpisz swoją notatkę"
+                                Text="{Binding Text}"
+                                HeightRequest="100"
+                                BackgroundColor="White"
+                                TextColor="Black"/>
+                    <Button Text="DODAJ" 
+                            Clicked="OnAddImportantDateButtonClicked"
+                                BackgroundColor="White"
+                                BorderWidth="3"
+                                BorderColor="Black"/>
+                    <DatePicker MinimumDate="05/11/2019"
+                                MaximumDate="12/31/2099"
+                                TextColor="Black"
+                                Date="{Binding SelectedDate}" 
+                                    BackgroundColor="White"/>
+                </StackLayout>
+            </FlexLayout>
+        </ScrollView>
+    </ContentPage.Content>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="INFORMACJE"
+                        Clicked="OnAlertAddImportantDatesPageButtonClicked"/>
+    </ContentPage.ToolbarItems>
+</ContentPage>

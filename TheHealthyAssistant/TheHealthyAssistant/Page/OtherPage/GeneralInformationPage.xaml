@@ -5,17 +5,22 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="TheHealthyAssistant.GeneralInformationPage"
-            Title="Notes">
+            Title="INFORMACJE">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="EDIT"
-                     Clicked="OnNoteAddedClicked" />
+        <ToolbarItem Text="ZMIEŃ"
+                     Clicked="OnUserEditClicked" />
+        <ToolbarItem Text="USUŃ"
+                     Clicked="OnUserDeleteClicked"/>
     </ContentPage.ToolbarItems>
     <ListView x:Name="listView"
               Margin="20"
               ItemSelected="OnListViewItemSelected">
         <ListView.ItemTemplate>
             <DataTemplate>
-                <TextCell Text="{Binding Text}"
+
+
+                <TextCell 
+                          Text="{Binding Name}"
                           Detail="{Binding Date}" />
             </DataTemplate>
         </ListView.ItemTemplate>
