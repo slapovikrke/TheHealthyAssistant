@@ -14,6 +14,7 @@ using Xamarin.Forms;
 using Android.Provider;
 using Android.Database;
 using Java.Util;
+using TheHealthyAssistant.Services;
 
 namespace TheHealthyAssistant.Droid
 {
@@ -22,6 +23,10 @@ namespace TheHealthyAssistant.Droid
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
+            SmsService smsService = new SmsService();
+            GyroscopeService gyroscopeService = new GyroscopeService(smsService);
+             
+            gyroscopeService.ToggleGyroscope();
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
 
