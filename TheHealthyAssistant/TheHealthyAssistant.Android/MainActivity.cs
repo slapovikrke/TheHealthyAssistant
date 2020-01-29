@@ -23,7 +23,9 @@ namespace TheHealthyAssistant.Droid
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
-            SmsService smsService = new SmsService();
+            Xamarin.Essentials.Platform.Init(this, savedInstanceState);
+            GPSService gPSService = new GPSService();
+            SmsService smsService = new SmsService(gPSService);
             GyroscopeService gyroscopeService = new GyroscopeService(smsService);
              
             gyroscopeService.ToggleGyroscope();

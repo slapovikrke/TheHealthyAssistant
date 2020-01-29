@@ -22,21 +22,27 @@ namespace TheHealthyAssistant.Services
             _lastSmsDate = new DateTime();
             // Register for reading changes.
             Gyroscope.ReadingChanged += Gyroscope_ReadingChanged;
-            //Task.Factory.StartNew(() => ResetReadings());
         }
 
 
         void Gyroscope_ReadingChanged(object sender, GyroscopeChangedEventArgs e)
         {
-            var data = e.Reading;
-            // Process Angular Velocity X, Y, and Z reported in rad/s
-            if (Math.Abs(data.AngularVelocity.X) > 7.0f || Math.Abs(data.AngularVelocity.Z) >= 7.0f)
+            try
             {
-                if (Math.Abs((_lastSmsDate - DateTime.Now).TotalMinutes) >= 60)
+                var data = e.Reading;
+                // Process Angular Velocity X, Y, and Z reported in rad/s
+                if (Math.Abs(data.AngularVelocity.X) > 7.0f || Math.Abs(data.AngularVelocity.Z) >= 7.0f)
                 {
-                    _smsService.SendSms().GetAwaiter().GetResult();
-                    _lastSmsDate = DateTime.Now;
+                    if (Math.Abs((_lastSmsDate - DateTime.Now).TotalMinutes) >= 60)
+                    {
+                        _smsService.SendSms().GetAwaiter().GetResult();
+                        _lastSmsDate = DateTime.Now;
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
             }
         }
 

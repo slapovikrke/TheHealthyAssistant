@@ -1,6 +1,5 @@
 ﻿using System;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 using System.IO;
 using TheHealthyAssistant.Data;
 
@@ -26,16 +25,6 @@ namespace TheHealthyAssistant
         {
             InitializeComponent();
             MainPage = new NavigationPage (new TheHealthyAssistant.MainPage());
-
-            if (ContextCompat.CheckSelfPermission(this, Manifest.Permission.AccessFineLocation) == Permission.Granted)
-            {
-                StartRequestingLocationUpdates();
-                isRequestingLocationUpdates = true;
-            }
-            else
-            {
-                // The app does not have permission ACCESS_FINE_LOCATION 
-            }
 
             //FolderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData));
 
